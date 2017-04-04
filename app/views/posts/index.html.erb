@@ -1,0 +1,15 @@
+<div class="col-md-7">
+	<h2>Welcome!</h2>
+	<% @posts.each do |p| %> 
+		<div class="col-md-12">
+			<h4><%= link_to p.title, post_path(p) %></h4>
+			<p><%= p.body %></p>
+			<% if user_signed_in? %> 
+				<%= link_to "Edit", edit_post_path(p), class: 'btn btn-success' %>
+				<%= link_to "Delete", post_path(p), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %> 
+				<br /><br />
+			<% end %> 
+		</div>
+	<% end %> 
+
+</div>

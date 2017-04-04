@@ -1,0 +1,6 @@
+<h3><%= @post.title %></h3> 
+<p><%= @post.body %></p>
+<% if user_signed_in? %>
+	<%= link_to "Delete", post_path, method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger' %> 
+	<%= link_to "Edit", edit_post_path, class: 'btn btn-success'  %> 
+<% end %> 
