@@ -4,6 +4,11 @@ RSpec.describe PostsController, type: :controller do
 
 	describe "GET index" do 
 
+		before do 
+			posts = [ Post.create(title: 'test', body: 'testing'), 
+				Post.create(title: 'test', body: 'testing') ]
+		end
+
 		it 'returns with http success' do 
 			get :index
 			expect(response).to have_http_status(:success)
@@ -13,6 +18,11 @@ RSpec.describe PostsController, type: :controller do
 			get :index
 			expect(response).to render_template('index')
 		end
+
+		it 'displays all of the current posts' do 
+			get :index 
+			expect(assigns(posts)).to eq([posts])
+		end 
 
 	end 
 
@@ -55,22 +65,24 @@ RSpec.describe PostsController, type: :controller do
 	end
 
 
-	# describe "POST create" do 
+	describe "POST create" do 
 
-	# 	before do 
-	# 		@post = Post.build(title: "test", body: "testing")
-	# 		post :create(@post)
-	# 	end 
+		before do 
+			
+			
+		end 
 
-	# 	it "responds with http success" do 
-	# 		expect(response).to have_http_status(:success)
-	# 	end 
+		it "responds with http success" do 
+			post :create, params: { title: "test", body: "test" }
+			expect(response).to have_http_status(:success)
+		end 
 
-	# 	it "redirects to the index view" do 
-	# 		expect(response).to redirect_to posts_path
-	# 	end 
+		it "redirects to the index view" do 
+			post :create, params: { title: "test", body: "test" }
+			expect(response).to redirect_to posts_path
+		end 
 
-	# end 
+	end 
 
 end
 
