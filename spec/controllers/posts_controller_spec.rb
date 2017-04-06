@@ -121,9 +121,9 @@ RSpec.describe PostsController, type: :controller do
 				expect(response).to redirect_to(posts_path)
 			end
 
-			# it "updates post" do 
-			# 	expect(test_post.title).to eq('other')
-			# end
+			it "updates post" do 
+				expect(test_post.title).to eq('other')
+			end
 		end 
 	end 
 
