@@ -4,7 +4,6 @@ RSpec.describe PostsController, type: :controller do
 
 	let!(:test_post) { Post.create(title: "testing", body: "testing") }
 
-
 	describe "GET index" do 
 
 		before { get :index }
@@ -18,21 +17,23 @@ RSpec.describe PostsController, type: :controller do
 		end
 
 		it "has http success" do 
-			expect(response).to have_http_status(:success)
+			expect(response).to have_http_status(200)
+			# or :success
 		end 
-	end 
 
+	end 
 
 	describe "GET show" do 
 
-		before { get :show, id: test_post.id }
+		before { get :show, params: { id: test_post } }
 
 		it "renders the #show template" do 
 			expect(response).to render_template('show')
 		end 
 
 		it "returns with http sucess" do 
-			expect(response).to have_http_status(:success)
+			expect(response).to have_http_status(200)
+			# or :success
 		end
 
 		it "assigns @post" do 
@@ -50,7 +51,8 @@ RSpec.describe PostsController, type: :controller do
 		end 
 
 		it "returns with http success" do 
-			expect(response).to have_http_status(:success)
+			expect(response).to have_http_status(200)
+			# or :success
 		end 
 
 		it "assigns @post" do 
@@ -87,16 +89,25 @@ RSpec.describe PostsController, type: :controller do
 
 			before { post :create, post: {title: "testing"} }
 
+			it "returns with http status of success" do 
+				expect(response).to have_http_status(200)
+			end
+
 			it "renders #new template" do 
 				expect(response).to render_template('new')
 			end 
 
 		end 
+
 	end 
 
 	describe "GET edit" do 
 
-		before { get :edit, params: { id: test_post.id } }
+		before { get :edit, id: test_post }
+
+		it "has an http response of success/200" do 
+			expect(response).to have_http_status(200)
+		end 
 
 		it "renders #edit template" do 
 			expect(response).to render_template('edit')
@@ -108,7 +119,7 @@ RSpec.describe PostsController, type: :controller do
 
 	end 
 
-	describe "PUT update" do 
+	describe "PATCH update" do 
 
 		context "when valid" do 
 
@@ -116,6 +127,10 @@ RSpec.describe PostsController, type: :controller do
 				patch :update, id: test_post, post: {title: 'other', body: 'other'}
 				test_post.reload
 			end
+
+			it "has an http response status of 302" do 
+				expect(response).to have_http_status(302)
+			end 
 			
 			it "renders the #index template" do 
 				expect(response).to redirect_to(posts_path)
@@ -129,11 +144,15 @@ RSpec.describe PostsController, type: :controller do
 
 	describe "DELETE destroy" do 
 
-		before { delete :destroy, id: test_post }
+		before { delete :destroy, params: { id: test_post } }
 
 		it "deletes posts" do 
 			expect(Post.count).to eq(0)
 		end
+
+		it "has http response status" do 
+			expect(response).to have_http_status(302)
+		end 
 
 		it "redirects to posts_path" do 
 			expect(response).to redirect_to(posts_path)
@@ -142,7 +161,6 @@ RSpec.describe PostsController, type: :controller do
 		it "will flash[:success]" do 
 			expect(flash[:success]).to be_present
 		end
-
 
 	end 
 
