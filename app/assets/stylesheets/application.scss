@@ -15,3 +15,24 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+
+a {
+	color: grey;
+}
+a:hover {
+	text-decoration: none;
+	color: black;
+}
+.post_button_container {
+	padding-top: 15px !important;
+}
+.post_container {
+	margin-bottom: 40px !important;
+}
+.post_title {
+	color: grey !important;
+}
+.post_description {
+
+}

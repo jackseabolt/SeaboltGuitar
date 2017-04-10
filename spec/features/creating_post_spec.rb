@@ -16,6 +16,7 @@ RSpec.feature "Creating a post" do
 		click_link "New Post"
 		fill_in "Title", with: "My Post"
 		fill_in "Body", with: "My content"
+		fill_in "Video", with: "video"
 		click_button "Create"
 		expect(page).to have_content("Your post has been created")
 		expect(page.current_path).to eq(posts_path)
@@ -31,6 +32,7 @@ RSpec.feature "Creating a post" do
 		click_button "Login"
 		click_link 'New Post'
 		fill_in 'Body', with: 'Content'
+		fill_in "Video", with: "video"
 		click_button 'Create'
 		expect(page).to have_content("There was a problem with your post")
 		expect(page).to have_content("Title can't be blank")
@@ -44,6 +46,7 @@ RSpec.feature "Creating a post" do
 		click_button "Login"
 		click_link 'New Post'
 		fill_in 'Title', with: 'Content'
+		fill_in "Video", with: "video"
 		click_button 'Create'
 		expect(page).to have_content("There was a problem with your post")
 		expect(page).to have_content("Body can't be blank")

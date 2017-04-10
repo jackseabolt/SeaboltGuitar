@@ -13,14 +13,18 @@
 	<div class="form-group">
 	<%= p.label :title %> 
 	<%= p.text_field :title, class: 'form-control' %> 
-
 	</div>
+
 	<div class="form-group">
 	<%= p.label :body %> 
 	<%= p.text_field :body, class: 'form-control' %>
-
-
 	</div>
+
+	<div class="form-group">
+	<%= p.label :video %>
+	<%= p.text_field :video, class: 'form-control' %>
+	</div>
+
 	<div class="form-group">
 		<%= p.submit "Update", class: 'btn btn-success' %>
 	</div>

@@ -3,8 +3,8 @@ require 'rails_helper'
 RSpec.feature "Listing posts" do 
 
 	before do 
-		@post1 = Post.create(title: "title one", body: "body one")
-		@post2 = Post.create(title: "title two", body: "body two")
+		@post1 = Post.create(title: "title one", body: "body one", video: "test")
+		@post2 = Post.create(title: "title two", body: "body two", video: "test")
 	end
 
 	scenario "a user lists posts in the index page" do
