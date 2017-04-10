@@ -1,33 +1,36 @@
-<%= form_for @post do |p| %> 
-	
-	<% if @post.errors.any? %> 
-		<div class="alert alert-danger alert-dismissible" role="alert">
-			<button type="button" class="close" data-dismiss="alert" aria-hidden="close">&times;</button>
-			<h4>There was a problem with your post</h4>
-			<% @post.errors.full_messages.each do |m| %> 
-				<%= m %>
-			<% end %> 
+<div class='col-sm-8 col-sm-push-2 col-md-6 col-md-push-3 form_top'>
+	<h2>Edit Post</h2>
+	<%= form_for @post do |p| %> 
+		
+		<% if @post.errors.any? %> 
+			<div class="alert alert-danger alert-dismissible" role="alert">
+				<button type="button" class="close" data-dismiss="alert" aria-hidden="close">&times;</button>
+				<h4>There was a problem with your post</h4>
+				<% @post.errors.full_messages.each do |m| %> 
+					<%= m %>
+				<% end %> 
+			</div>
+		<% end %> 
+
+		<div class="form-group">
+		<%= p.label :title, class: 'white' %> 
+		<%= p.text_field :title, class: 'form-control' %> 
 		</div>
+
+		<div class="form-group">
+		<%= p.label :body, class: 'white' %> 
+		<%= p.text_field :body, class: 'form-control' %>
+		</div>
+
+		<div class="form-group">
+		<%= p.label :video, class: 'white' %>
+		<%= p.text_field :video, class: 'form-control' %>
+		</div>
+
+		<div class="form-group">
+			<%= p.submit "Update", class: 'btn btn-primary' %>
+		</div>
+
+
 	<% end %> 
-
-	<div class="form-group">
-	<%= p.label :title %> 
-	<%= p.text_field :title, class: 'form-control' %> 
-	</div>
-
-	<div class="form-group">
-	<%= p.label :body %> 
-	<%= p.text_field :body, class: 'form-control' %>
-	</div>
-
-	<div class="form-group">
-	<%= p.label :video %>
-	<%= p.text_field :video, class: 'form-control' %>
-	</div>
-
-	<div class="form-group">
-		<%= p.submit "Update", class: 'btn btn-success' %>
-	</div>
-
-
-<% end %> 	
+</div>	
