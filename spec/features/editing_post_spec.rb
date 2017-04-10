@@ -4,7 +4,7 @@ RSpec.feature 'Editing a post' do
 
 
 	before do 
-		@post = Post.create(body: "Body", title: "My title")
+		@post = Post.create(body: "Body", title: "My title", video: "video")
 		@user = User.create(email: "testing@gmail.com", password: "testing")
 	end 
 
@@ -17,6 +17,7 @@ RSpec.feature 'Editing a post' do
 		click_link 'Edit'
 		fill_in "Title", with: "Other"
 		fill_in "Body", with: "Body other"
+		fill_in "Video", with: "other"
 		click_button "Update"
 		expect(page.current_path).to eq(posts_path)
 		expect(page).to have_content("Other")

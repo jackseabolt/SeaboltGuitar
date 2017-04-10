@@ -4,7 +4,7 @@ RSpec.feature "Deleting posts" do
 
 	before do 
 		@user = User.create!(email: 'testing@gmail.com', password: "testing")
-		@post = Post.create(title: "Title", body: "My body content")
+		@post = Post.create(title: "Title", body: "My body content", video: "test")
 	end
 
 	scenario "A logged in user deletes a post from the index view" do 

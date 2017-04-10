@@ -1,12 +1,18 @@
-<div class="col-md-7">
-	<h2>Welcome!</h2>
+<div class="col-md-6 col-md-push-3">
 	<% @posts.each do |p| %> 
-		<div class="col-md-12">
-			<h4><%= link_to p.title, post_path(p) %></h4>
-			<p><%= p.body %></p>
+		<div class="col-md-12 post_container">
+			<h4 class="post_title"><%= link_to p.title, post_path(p) %></h4>
+			<p class="post_description"><%= p.body %></p>
+			<!-- <iframe width="100%" src="<%= p.video %>">
+			</iframe> -->
+			<div class="embed-responsive embed-responsive-16by9">
+  				<iframe class="embed-responsive-item video" src="<%= p.video %>"></iframe>
+			</div>
 			<% if user_signed_in? %> 
+				<div class="post_button_container">
 				<%= link_to "Edit", edit_post_path(p), class: 'btn btn-success' %>
 				<%= link_to "Delete", post_path(p), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %> 
+				</div>
 				<br /><br />
 			<% end %> 
 		</div>

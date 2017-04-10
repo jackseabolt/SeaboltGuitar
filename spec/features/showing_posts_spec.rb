@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.feature "Showing posts" do 
 
 	before do 
-		@post = Post.create(title: "title", body: "body stuff")
+		@post = Post.create(title: "title", body: "body stuff", video: 'test')
 	end 
 
 	scenario "A user goes to the show page for a post" do 

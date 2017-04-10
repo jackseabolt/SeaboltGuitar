@@ -1,8 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe PostsController, type: :controller do 
+	
 
-	let!(:test_post) { Post.create(title: "testing", body: "testing") }
+	let!(:test_post) { Post.create( title:"test", body: "testing", video: "test" ) }
 
 	describe "GET index" do 
 
@@ -16,7 +17,7 @@ RSpec.describe PostsController, type: :controller do
 			expect(assigns(:posts)).to eq([test_post])
 		end
 
-		it "has http success" do 
+		it "has http success" do
 			expect(response).to have_http_status(200)
 			# or :success
 		end 
@@ -65,7 +66,7 @@ RSpec.describe PostsController, type: :controller do
 
 		context "when valid" do 
 
-			before { post :create, post: {title:"testing", body: "testing"} }
+			before { post :create, post: {title:"testing", body: "testing", video: 'test'} }
 
 			it 'creates a new post' do
      			expect(Post.count).to eq(2)
