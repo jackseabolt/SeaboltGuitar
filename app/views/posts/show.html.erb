@@ -1,15 +1,15 @@
-<div class="col-md-6 col-md-push-3">
+<div class="col-sm-8 col-sm-push-2 col-md-6 col-md-push-3 show_container">
 	<h3><%= @post.title %></h3> 
-	<p><%= @post.body %></p>
+	<p><%= @post.body %></p> 
 	<div class="embed-responsive embed-responsive-16by9">
 		<iframe class="embed-responsive-item video" src="<%= @post.video %>"></iframe>
 	</div>
-
+	<p class="post_sub"><i>Posted <%= time_ago_in_words(@post.created_at) %> ago</i></p>
 
 	<% if user_signed_in? %>
-	<div class="post_button_container">
+	<div>
 		<%= link_to "Delete", post_path, method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger' %> 
-		<%= link_to "Edit", edit_post_path, class: 'btn btn-success'  %>
+		<%= link_to "Edit", edit_post_path, class: 'btn btn-primary'  %>
 	</div> 
 	<% end %> 
 
