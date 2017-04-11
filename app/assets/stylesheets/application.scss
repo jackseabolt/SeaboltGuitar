@@ -18,7 +18,6 @@
 
 
 
-
 .apple_pagination {
 	background: none;
 	border: 0px;
@@ -57,7 +56,15 @@
      text-decoration: none; 
      background: none !important;
 }
-
+#banner {
+  background: url(banner3.jpg) no-repeat center; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+	margin-top: 120px;
+	height: 350px;
+}
 
 
 
@@ -66,6 +73,7 @@
 body {
 	background-color: #202020;
 }
+
 
 h1, h2, h3, h4, h5 {
 	color: white;
@@ -79,23 +87,97 @@ a:hover {
 	text-decoration: none;
 	color: grey;
 }
+button.accordion {
+    background-color: #3b3b3b;
+    color: white;
+    cursor: pointer;
+    padding: 18px 18px 18px 45px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+    border-bottom: 3px solid #202020;
+}
+button.accordion.active, button.accordion:hover {
+    background-color: #5e5e5e;
+}
+div.panel {
+    padding: 0px;
+    background-color: white;
+    display: none;
+    margin: 0px;
+	border-radius: 0px;
+	border: 0px;
+	border-bottom: 3px solid #202020;
+}
+.index_sidebar {
+	background-color: none;
+	padding: 0px;
+	padding-top: 80px;
+}
+
+.sidebar_lesson {
+	background-color: #323232;
+	color: white !important;
+	margin: 0px;
+	transition: 0.4s;
+	padding: 20px 20px 20px 65px !important;
+	width: 100%;
+	border: 0px;
+	text-align: left;
+}
+.sidebar_lesson:hover, .sidebar.active, .sidebar_lesson:focus {
+	background-color: #272727;
+	outline:0;
+}
+
+.title {
+	padding: 0px 0px 20px 0px;
+	margin: 0px;
+}
+
+
+
+
+
 .form_top {
-	margin-top: 50px !important;
+	margin-top: 120px !important;
 }
 .index_post_container {
 	margin-bottom: 100px;
-	margin-top: 30px;
+	margin-top: 60px;
+}
+.index_sidebar {
+	margin-bottom: 100px;
+	margin-top: 10px;
+}
+.light {
+	font-weight: 100;
+}
+
+.navbar {
+	position: fixed;
+	width: 100%;
+	z-index: 5;
 }
 nav {
 	background-color: black !important;
 	border: black !important;
 	border-radius: 0px !important;
+	padding: 10px;
+	.icon-bar { 
+		background-color: white !important;
+	}
 	a, h1, h2, h3, h4, h5, li, p {
 		color: white !important;
 	}
 	li > a:hover {
 		color: grey !important;
 	}
+}
+.navbar-nav {
+	margin-left: 20px;
 }
 .navbar-toggle {
 	background-color: black !important;
@@ -121,7 +203,7 @@ p {
 	color: grey !important;
 }
 .show_container {
-	padding-top: 35px;
+	padding-top: 110px;
 	margin-bottom: 140px;
 }
 .white {

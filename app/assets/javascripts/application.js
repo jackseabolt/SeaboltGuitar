@@ -15,3 +15,14 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+
+function stick(){
+	var sidebar = document.getElementById('sidebar');
+	var ypos = window.pageYOffset;
+	if ( ypos > 40 ) {
+		sidebar.style.display = "static";
+	}
+}
+
+window.addEventListener("scroll", stick);
