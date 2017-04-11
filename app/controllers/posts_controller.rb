@@ -2,6 +2,11 @@ class PostsController < ApplicationController
 
 	def index 
 		@posts = Post.all.order(created_at: :desc).paginate(:page => params[:page], :per_page => 4)
+		@beginner = Post.all.where(category: 'Beginner')
+		@strumming = Post.all.where(category: "Strumming")
+		@fingerpicking = Post.all.where(category: "Fingerpicking")
+		@lead = Post.all.where(category: "Lead")
+		@exercises = Post.all.where(category: "Exercises")
 	end 
 
 	def show 
@@ -52,7 +57,7 @@ class PostsController < ApplicationController
 	private 
 
 		def post_params
-			params.require(:post).permit(:title, :body, :video)
+			params.require(:post).permit(:title, :body, :video, :category)
 		end 
 
 end

@@ -1,5 +1,6 @@
 <div class='col-sm-8 col-sm-push-2 col-md-6 col-md-push-3 form_top'>
 	<h2>Edit Post</h2>
+	<br />
 	<%= form_for @post do |p| %> 
 		
 		<% if @post.errors.any? %> 
@@ -28,6 +29,12 @@
 		</div>
 
 		<div class="form-group">
+			<%= p.label :category, class: 'white' %>
+			<%= p.select :category, options_for_select(['Beginner','Strumming','Fingerpicking','Lead','Exercises']), {}, class: 'form-control' %>
+		</div>
+
+		<div class="form-group">
+			<br />
 			<%= p.submit "Update", class: 'btn btn-primary' %>
 		</div>
 
