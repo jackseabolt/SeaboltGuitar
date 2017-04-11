@@ -56,7 +56,15 @@
      text-decoration: none; 
      background: none !important;
 }
-
+#banner {
+  background: url(banner3.jpg) no-repeat center; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+	margin-top: 120px;
+	height: 350px;
+}
 
 
 
@@ -138,11 +146,11 @@ div.panel {
 }
 .index_post_container {
 	margin-bottom: 100px;
-	margin-top: 110px;
+	margin-top: 60px;
 }
 .index_sidebar {
 	margin-bottom: 100px;
-	margin-top: 60px;
+	margin-top: 10px;
 }
 .light {
 	font-weight: 100;
@@ -195,7 +203,7 @@ p {
 	color: grey !important;
 }
 .show_container {
-	padding-top: 35px;
+	padding-top: 110px;
 	margin-bottom: 140px;
 }
 .white {
