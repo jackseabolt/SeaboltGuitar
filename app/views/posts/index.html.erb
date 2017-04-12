@@ -1,86 +1,88 @@
-<div class="col-md-10 col-md-push-1" id="banner">
-
+<div class="row">
+	<div class="col-md-10 col-md-push-1" id="banner">
+	
+	</div>
 </div>
 
-
-<div class="col-md-3 col-md-push-1 index_sidebar" id="sidebar">
-<h4 class="white title">Lessons</h4>
-	<button class="accordion">Beginner</button>	
-	<div class="panel">
-		<% if @beginner.empty? %> 
-			<p class="sidebar_lesson"><i>No lessons available</i></p>
-		<% else %> 
-			<% @beginner.each do |p| %> 
-				<%= button_to p.title, post_path(p), method: :get, class: 'sidebar_lesson' %>
-			<% end %>
-		<% end %> 
-	</div>
-	<button class="accordion">Strumming</button>
+<div class="row" id="post_row">
+	<div class="col-md-3 col-md-push-1 index_sidebar" id="sidebar">
+	<h4 class="white titlec post_title">Lessons</h4>
+		<button class="accordion">Beginner</button>	
 		<div class="panel">
-			<% if @strumming.empty? %> 
-				<p class="sidebar_lesson"><i>No lessons available</i></p>
-			<% else %>
-				<% @strumming.each do |p| %> 
-	  				<%= button_to p.title, post_path(p), method: :get, class: 'sidebar_lesson' %>
-				<% end %>
-			<% end %> 
-		</div>
-	<button class="accordion">Fingerpicking</button>
-  		<div class="panel">
-  			<% if @fingerpicking.empty? %> 
-				<p class="sidebar_lesson"><i>No lessons available</i></p>
-			<% else %>
-	  			<% @fingerpicking.each do |p| %> 
-	  				<%= button_to p.title, post_path(p), method: :get, class: 'sidebar_lesson' %>
-				<% end %>
-			<% end %>
-		</div>
-	<button class="accordion">Lead</button>
-		<div class="panel">
-			<% if @lead.empty? %> 
-				<p class="sidebar_lesson"><i>No lessons available</i></p>
-			<% else %>
-				<% @lead.each do |p| %> 
-	  				<%= button_to p.title, post_path(p), method: :get, class: 'sidebar_lesson' %>
-				<% end %>
-			<% end %> 
-		</div>
-	<button class="accordion">Exercises</button>
-		<div class="panel">
-			<% if @exercises.empty? %> 
+			<% if @beginner.empty? %> 
 				<p class="sidebar_lesson"><i>No lessons available</i></p>
 			<% else %> 
-				<% @exercises.each do |p| %> 
-	  				<%= button_to p.title, post_path(p), method: :get, class: 'sidebar_lesson' %>
-	  			<% end %>
+				<% @beginner.each do |p| %> 
+					<%= button_to p.title, post_path(p), method: :get, class: 'sidebar_lesson' %>
+				<% end %>
 			<% end %> 
 		</div>
-</div>
-
-
-
-<div class="col-md-6 col-md-push-2 index_post_container" id="index_post_container">
-	<% @posts.each do |p| %> 
-		<div class="col-md-12 post_container">
-			<h4 class="post_title"><%= link_to p.title, post_path(p) %></h4>
-			<p class="post_description"><%= p.body %></p>
-			<!-- <iframe width="100%" src="<%= p.video %>">
-			</iframe> -->
-			<div class="embed-responsive embed-responsive-16by9">
-  				<iframe class="embed-responsive-item video" src="<%= p.video %>"></iframe>
+		<button class="accordion">Strumming</button>
+			<div class="panel">
+				<% if @strumming.empty? %> 
+					<p class="sidebar_lesson"><i>No lessons available</i></p>
+				<% else %>
+					<% @strumming.each do |p| %> 
+		  				<%= button_to p.title, post_path(p), method: :get, class: 'sidebar_lesson' %>
+					<% end %>
+				<% end %> 
 			</div>
-			<% if user_signed_in? %> 
-				<div class="post_button_container">
-				<%= link_to "Edit", edit_post_path(p), class: 'btn btn-primary' %>
-				<%= link_to "Delete", post_path(p), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %> 
+		<button class="accordion">Fingerpicking</button>
+	  		<div class="panel">
+	  			<% if @fingerpicking.empty? %> 
+					<p class="sidebar_lesson"><i>No lessons available</i></p>
+				<% else %>
+		  			<% @fingerpicking.each do |p| %> 
+		  				<%= button_to p.title, post_path(p), method: :get, class: 'sidebar_lesson' %>
+					<% end %>
+				<% end %>
+			</div>
+		<button class="accordion">Lead</button>
+			<div class="panel">
+				<% if @lead.empty? %> 
+					<p class="sidebar_lesson"><i>No lessons available</i></p>
+				<% else %>
+					<% @lead.each do |p| %> 
+		  				<%= button_to p.title, post_path(p), method: :get, class: 'sidebar_lesson' %>
+					<% end %>
+				<% end %> 
+			</div>
+		<button class="accordion">Exercises</button>
+			<div class="panel">
+				<% if @exercises.empty? %> 
+					<p class="sidebar_lesson"><i>No lessons available</i></p>
+				<% else %> 
+					<% @exercises.each do |p| %> 
+		  				<%= button_to p.title, post_path(p), method: :get, class: 'sidebar_lesson' %>
+		  			<% end %>
+				<% end %> 
+			</div>
+	</div>
+
+
+
+	<div class="col-md-6 col-md-push-2 index_post_container" id="index_post_container">
+		<% @posts.each do |p| %> 
+			<div class="col-md-12 post_container">
+				<h4 class="post_title"><%= link_to p.title, post_path(p) %></h4>
+				<p class="post_description"><%= p.body %></p>
+				<!-- <iframe width="100%" src="<%= p.video %>">
+				</iframe> -->
+				<div class="embed-responsive embed-responsive-16by9">
+	  				<iframe class="embed-responsive-item video" src="<%= p.video %>"></iframe>
 				</div>
-			<% end %> 
-		</div>
-	<% end %> 
-	<%= will_paginate @posts, class: 'apple_pagination' %>
+				<% if user_signed_in? %> 
+					<div class="post_button_container">
+					<%= link_to "Edit", edit_post_path(p), class: 'btn btn-primary' %>
+					<%= link_to "Delete", post_path(p), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %> 
+					</div>
+				<% end %> 
+			</div>
+		<% end %> 
+		<%= will_paginate @posts, class: 'apple_pagination' %>
+	</div>
+
 </div>
-
-
 
 
 <script>
@@ -103,17 +105,36 @@
 	// window.addEventListener('scroll', scroll);
 	// function scroll() {
 	// 	var banner = document.getElementById('banner');
-	// 	var x = banner.getAttribute("background");
-	// 	// alert(x);
-	// 	banner.style.background = "url(<%= asset_path('banner2.jpg') %>) no-repeat center";
+	// 	var x = banner.style.backgroundImage
+	// 	alert(x);
+	// 	banner.style.backgroundImage = "url(<%= asset_path('banner2.jpg') %>)";
 	// }
 
 
-			// setInterval(function myFunction(){
-			// 	var banner = document.getElementById('banner');
-			// 	var x = banner.getAttribute("backgroundImage");
-			// 	alert(x); 
-			// }, 5000); 
+	setInterval(function myFunction(){
+		var banner = document.getElementById('banner');
+		var x = banner.style.backgroundImage
+		x = x.match(/\d+/g);  
+		x = parseInt(x); 
+		// if (x=="NaN) {
+		// 	banner.backgroundImage = "url('banner2.jpg')";
+		// }
+		// if (x==1){ 
+		// 	banner.backgroundImage = "url('banner" + x + ".jpg')";
+		// 	x = 2;
+		// }
+		// if (x==2){ 
+		// 	banner.backgroundImage = "url('banner" + x + ".jpg')";
+		// 	x = 3;
+		// }
+		// if (x==3){ 
+		// 	banner.backgroundImage = "url('banner" + x + ".jpg')";
+		// 	x = 1;
+		// }
+
+
+		// banner.style.backgroundImage = "url(<%= asset_path('banner2.jpg') %>)";
+	}, 5000); 
 			
 
 
