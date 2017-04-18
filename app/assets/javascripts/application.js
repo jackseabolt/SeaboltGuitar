@@ -11,18 +11,24 @@
 // about supported directives.
 //
 //= require jquery
-//= require bootstrap-sprockets
 //= require jquery_ujs
+//= require bootstrap-sprockets
 //= require turbolinks
 //= require_tree .
 
+$(document).on('turbolinks:load', function(){ 
+	var acc = document.getElementsByClassName("accordion");
+	var i;
 
-function stick(){
-	var sidebar = document.getElementById('sidebar');
-	var ypos = window.pageYOffset;
-	if ( ypos > 40 ) {
-		sidebar.style.display = "static";
+	for (i = 0; i < acc.length; i++) {
+	    acc[i].onclick = function(){
+	        this.classList.toggle("active");
+	        var panel = this.nextElementSibling;
+	        if (panel.style.display === "block") {
+	            panel.style.display = "none";
+	        } else {
+	            panel.style.display = "block";
+	        }
+	    }
 	}
-}
-
-window.addEventListener("scroll", stick);
+}); 
