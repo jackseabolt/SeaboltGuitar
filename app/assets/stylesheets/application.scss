@@ -95,26 +95,30 @@ button.accordion {
     text-align: left;
     border: none;
     outline: none;
-    transition: 0.4s;
-    border-bottom: 3px solid #202020;
+    border-bottom: 0px #202020;
 }
 button.accordion.active, button.accordion:hover {
     background-color: #5e5e5e;
 }
+button.accordion.active {
+    background-color: #5e5e5e;
+    border-bottom: 3px solid #202020;
+}
 div.panel {
-    padding: 0px;
     background-color: white;
-    display: none;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    border-radius: 0px;
     margin: 0px;
-	border-radius: 0px;
-	border: 0px;
-	border-bottom: 3px solid #202020;
+    border: 0px;
+    border-bottom: 3px solid #202020;
+    padding: 0px;
 }
 .index_sidebar {
 	background-color: none;
 	padding: 0px;
 }
-
 .sidebar_lesson {
 	background-color: #323232;
 	color: white !important;
@@ -133,6 +137,11 @@ div.panel {
 .title {
 	padding: 0px 0px 20px 0px;
 	margin: 0px;
+}
+/*this fixes issue with rows overflowing the side of the body*/
+.row {
+    margin-left: 0px !important;
+    margin-right: 0px !important;
 }
 
 
